@@ -41,7 +41,7 @@ function App() {
       <Logo />
 
       {cards.map((card, index) => {
-        return <Flashcard text={`Pergunta ${index}`} card={card} />;
+        return <Flashcard text={`Pergunta ${index}`} card={card} key={index} />;
       })}
 
       <Footer />
