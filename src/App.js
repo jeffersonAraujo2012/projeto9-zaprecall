@@ -1,3 +1,5 @@
+import { useState } from "react";
+
 import Body from "./components/Body";
 import Logo from "./components/Logo";
 import "./css/reset.css";
@@ -36,15 +38,28 @@ function App() {
     },
   ];
 
+  const [numQuestionsAnswered, setNumQuestionsAnswered] = useState(0);
+
   return (
     <Body>
       <Logo />
 
       {cards.map((card, index) => {
-        return <Flashcard text={`Pergunta ${index}`} card={card} key={index} />;
+        return (
+          <Flashcard
+            text={`Pergunta ${index + 1}`}
+            card={card}
+            key={index}
+            numQuestionsAnswered={numQuestionsAnswered}
+            setNumQuestionsAnswered={setNumQuestionsAnswered}
+          />
+        );
       })}
 
-      <Footer />
+      <Footer
+        numQuestions={cards.length}
+        numQuestionsAnswered={numQuestionsAnswered}
+      />
     </Body>
   );
 }

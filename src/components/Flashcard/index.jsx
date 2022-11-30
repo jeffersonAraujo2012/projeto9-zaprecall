@@ -8,7 +8,12 @@ import iconAlmost from "../../assets/images/icon_almost.png";
 import iconRight from "../../assets/images/icon_right.png";
 import Options from "./Options";
 
-export default function Flashcard({ text, card }) {
+export default function Flashcard({
+  text,
+  card,
+  numQuestionsAnswered,
+  setNumQuestionsAnswered,
+}) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTurned, setIsTurned] = useState(false);
   const [statusQuestion, setStatusQuestion] = useState("NOT_ANSWERED");
@@ -57,6 +62,8 @@ export default function Flashcard({ text, card }) {
           setStatusQuestion={setStatusQuestion}
           setIsExpanded={setIsExpanded}
           setIsTurned={setIsTurned}
+          numQuestionsAnswered={numQuestionsAnswered}
+          setNumQuestionsAnswered={setNumQuestionsAnswered}
         />
       ) : (
         ""

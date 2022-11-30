@@ -5,6 +5,8 @@ export default function Options({
   setStatusQuestion,
   setIsTurned,
   setIsExpanded,
+  setNumQuestionsAnswered,
+  numQuestionsAnswered
 }) {
   return (
     <StyledOptions>
@@ -15,6 +17,7 @@ export default function Options({
           setStatusQuestion("WRONG");
           setIsTurned(false);
           setIsExpanded(false);
+          setNumQuestionsAnswered(numQuestionsAnswered + 1);
         }}
       />
       <OptionButton
@@ -24,6 +27,7 @@ export default function Options({
           setStatusQuestion("ALMOST");
           setIsTurned(false);
           setIsExpanded(false);
+          setNumQuestionsAnswered(numQuestionsAnswered + 1);
         }}
       />
       <OptionButton
@@ -33,6 +37,7 @@ export default function Options({
           setStatusQuestion("RIGHT");
           setIsTurned(false);
           setIsExpanded(false);
+          setNumQuestionsAnswered(numQuestionsAnswered + 1);
         }}
       />
     </StyledOptions>
