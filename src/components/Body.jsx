@@ -14,10 +14,9 @@ const StyledBody = styled.main`
   position: flex;
   flex-direction: column;
   align-items: center;
-  padding: 0 37px 170px;
+  padding: 42px 37px 170px;
   width: 100vw;
   height: 100%;
 
   background: #fb6b6b;
-  border: 1px solid #dbdbdb;
 `;

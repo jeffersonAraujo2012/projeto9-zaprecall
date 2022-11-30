@@ -14,7 +14,6 @@ const StyledLogo = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-top: 42px;
   margin-bottom: 50px;
 
   & img {
