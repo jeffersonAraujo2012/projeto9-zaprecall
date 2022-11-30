@@ -1,7 +1,11 @@
 import styled from "styled-components";
 
-export default function OptionButton({ text, color }) {
-  return <StyledOptionButton color={color}>{text}</StyledOptionButton>;
+export default function OptionButton({ text, color, onClick }) {
+  return (
+    <StyledOptionButton color={color} onClick={onClick}>
+      {text}
+    </StyledOptionButton>
+  );
 }
 
 const StyledOptionButton = styled.button`
@@ -21,7 +25,7 @@ const StyledOptionButton = styled.button`
   font-weight: 400;
   font-size: 12px;
   line-height: 14px;
-  
+
   color: #ffffff;
   cursor: pointer;
 

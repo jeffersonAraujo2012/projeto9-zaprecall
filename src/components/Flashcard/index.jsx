@@ -3,25 +3,42 @@ import styled from "styled-components";
 
 import iconExpand from "../../assets/images/expand.svg";
 import iconTurn from "../../assets/images/turn.svg";
+import iconWrong from "../../assets/images/icon_wrong.png";
+import iconAlmost from "../../assets/images/icon_almost.png";
+import iconRight from "../../assets/images/icon_right.png";
 import Options from "./Options";
 
 export default function Flashcard({ text, card }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTurned, setIsTurned] = useState(false);
+  const [statusQuestion, setStatusQuestion] = useState("NOT_ANSWERED");
+
+  console.log(statusQuestion);
 
   function handlerExpanderClick() {
-    console.log("teste");
-    console.log(isExpanded);
-    if (isExpanded === false) {
+    if (isExpanded === false && statusQuestion === "NOT_ANSWERED") {
       setIsExpanded(true);
     }
   }
 
   function handlerTurnClick() {
-    console.log(isTurned);
     if (isExpanded === true && isTurned === false) {
       setIsTurned(true);
     }
+  }
+
+  function icon() {
+    switch (statusQuestion) {
+      case "WRONG":
+        return iconWrong;
+      case "ALMOST":
+        return iconAlmost;
+      case "RIGHT":
+        return iconRight;
+    }
+
+    if (isExpanded) return iconTurn;
+    else return iconExpand;
   }
 
   return (
@@ -29,14 +46,21 @@ export default function Flashcard({ text, card }) {
       onClick={handlerExpanderClick}
       isExpanded={isExpanded}
       isTurned={isTurned}
+      statusQuestion={statusQuestion}
     >
-      <span>{isExpanded ? (isTurned ? card.answer : card.question) : text}</span>
-      <img
-        src={isExpanded ? iconTurn : iconExpand}
-        alt="Expand flashcard"
-        onClick={handlerTurnClick}
-      />
-      {isTurned ? <Options /> : ""}
+      <span>
+        {isExpanded ? (isTurned ? card.answer : card.question) : text}
+      </span>
+      <img src={icon()} alt="Expand flashcard" onClick={handlerTurnClick} />
+      {isTurned ? (
+        <Options
+          setStatusQuestion={setStatusQuestion}
+          setIsExpanded={setIsExpanded}
+          setIsTurned={setIsTurned}
+        />
+      ) : (
+        ""
+      )}
     </StyledFlashcard>
   );
 }
@@ -68,7 +92,27 @@ const StyledFlashcard = styled.div`
     font-size: 16px;
     line-height: 19px;
 
-    color: #333333;
+    ${(props) => {
+      switch (props.statusQuestion) {
+        case "WRONG":
+          return `
+            color: #FF3030;
+            text-decoration: line-through;a
+          `;
+        case "ALMOST":
+          return `
+            color: #FF922E;
+            text-decoration: line-through;
+          `;
+        case "RIGHT":
+          return `
+            color: #2FBE34;
+            text-decoration: line-through;
+          `;
+        default:
+          return `color: #333333`;
+      }
+    }};
 
     ${(props) =>
       props.isExpanded &&
