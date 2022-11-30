@@ -9,11 +9,12 @@ export default function Body({ children }) {
 }
 
 const StyledBody = styled.main`
-  box-sizing: border-box;
+  position: relative;
 
-  position: flex;
+  display: flex;
   flex-direction: column;
   align-items: center;
+  
   padding: 42px 37px 170px;
   width: 100vw;
   height: 100%;

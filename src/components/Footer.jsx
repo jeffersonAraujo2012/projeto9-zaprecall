@@ -9,8 +9,7 @@ export default function Footer() {
 }
 
 const StyledFooter = styled.footer`
-  position: fixed;
-  left: 0;
+  position: absolute;
   bottom: 0;
 
   display: flex;
