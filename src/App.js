@@ -6,6 +6,7 @@ import "./css/reset.css";
 import "./css/general.css";
 import Flashcard from "./components/Flashcard";
 import Footer from "./components/Footer";
+import InitialScreen from "./components/InitialScreen";
 
 function App() {
   const cards = [
@@ -39,28 +40,35 @@ function App() {
   ];
 
   const [numQuestionsAnswered, setNumQuestionsAnswered] = useState(0);
+  const [showInitialScreen, setShowInitialScreen] = useState(true);
 
   return (
-    <Body>
-      <Logo />
+    <>
+      {showInitialScreen ? (
+        <InitialScreen setShowInitialScreen={setShowInitialScreen} />
+      ) : (
+        <Body>
+          <Logo />
 
-      {cards.map((card, index) => {
-        return (
-          <Flashcard
-            text={`Pergunta ${index + 1}`}
-            card={card}
-            key={index}
+          {cards.map((card, index) => {
+            return (
+              <Flashcard
+                text={`Pergunta ${index + 1}`}
+                card={card}
+                key={index}
+                numQuestionsAnswered={numQuestionsAnswered}
+                setNumQuestionsAnswered={setNumQuestionsAnswered}
+              />
+            );
+          })}
+
+          <Footer
+            numQuestions={cards.length}
             numQuestionsAnswered={numQuestionsAnswered}
-            setNumQuestionsAnswered={setNumQuestionsAnswered}
           />
-        );
-      })}
-
-      <Footer
-        numQuestions={cards.length}
-        numQuestionsAnswered={numQuestionsAnswered}
-      />
-    </Body>
+        </Body>
+      )}
+    </>
   );
 }
 
