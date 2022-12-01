@@ -10,7 +10,7 @@ export default function Footer({
   statusAnsweredQuestions,
 }) {
   return (
-    <StyledFooter>
+    <StyledFooter data-test="footer">
       <span>
         {numQuestionsAnswered}/{numQuestions} CONCLUÍDOS
       </span>
@@ -18,11 +18,32 @@ export default function Footer({
         {statusAnsweredQuestions.map((status, index) => {
           switch (status) {
             case "WRONG":
-              return <img src={iconWrong} alt="Não lembrei" key={index} />;
+              return (
+                <img
+                  src={iconWrong}
+                  alt="Não lembrei"
+                  data-test="no-icon"
+                  key={index}
+                />
+              );
             case "ALMOST":
-              return <img src={iconAlmost} alt="Quase não lembrei" key={index} />;
+              return (
+                <img
+                  src={iconAlmost}
+                  alt="Quase não lembrei"
+                  data-test="partial-icon"
+                  key={index}
+                />
+              );
             case "RIGHT":
-              return <img src={iconRight} alt="lembrei" key={index} />;
+              return (
+                <img
+                  src={iconRight}
+                  alt="lembrei"
+                  data-test="zap-icon"
+                  key={index}
+                />
+              );
             default:
               return "";
           }

@@ -1,8 +1,8 @@
 import styled from "styled-components";
 
-export default function OptionButton({ text, color, onClick }) {
+export default function OptionButton({ text, color, onClick, dataTest }) {
   return (
-    <StyledOptionButton color={color} onClick={onClick}>
+    <StyledOptionButton color={color} onClick={onClick} data-test={dataTest}>
       {text}
     </StyledOptionButton>
   );

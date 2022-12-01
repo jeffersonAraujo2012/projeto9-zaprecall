@@ -25,6 +25,7 @@ export default function Options({
         onClick={() => {
           optionButtonClick("WRONG");
         }}
+        dataTest="no-btn"
       />
       <OptionButton
         color="#FF922E"
@@ -32,6 +33,7 @@ export default function Options({
         onClick={() => {
           optionButtonClick("ALMOST");
         }}
+        dataTest="partial-btn"
       />
       <OptionButton
         color="#2FBE34"
@@ -39,6 +41,7 @@ export default function Options({
         onClick={() => {
           optionButtonClick("RIGHT");
         }}
+        dataTest="zap-btn"
       />
     </StyledOptions>
   );

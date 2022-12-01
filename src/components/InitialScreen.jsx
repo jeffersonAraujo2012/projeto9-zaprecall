@@ -7,7 +7,7 @@ export default function InitialScreen({ setShowInitialScreen }) {
     <StyledInitialScreen>
       <img src={logo} alt="logo" />
       <p>ZapRecall</p>
-      <button onClick={() => setShowInitialScreen(false)}>
+      <button onClick={() => setShowInitialScreen(false)} data-test="start-btn">
         Iniciar Recall!
       </button>
     </StyledInitialScreen>

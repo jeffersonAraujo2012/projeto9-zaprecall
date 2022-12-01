@@ -47,17 +47,37 @@ export default function Flashcard({
     else return iconExpand;
   }
 
+  function iconDataTest() {
+    if (isExpanded) return "turn-btn";
+    switch (statusQuestion) {
+      case "WRONG":
+        return "no-icon";
+      case "ALMOST":
+        return "partial-icon";
+      case "RIGHT":
+        return "zap-icon";
+      default:
+        return "play-btn";
+    }
+  }
+
   return (
     <StyledFlashcard
       onClick={handlerExpanderClick}
       isExpanded={isExpanded}
       isTurned={isTurned}
       statusQuestion={statusQuestion}
+      data-test="flashcard"
     >
-      <span>
+      <span data-test="flashcard-text">
         {isExpanded ? (isTurned ? card.answer : card.question) : text}
       </span>
-      <img src={icon()} alt="Expand flashcard" onClick={handlerTurnClick} />
+      <img
+        src={icon()}
+        alt="Expand flashcard"
+        onClick={handlerTurnClick}
+        data-test={iconDataTest()}
+      />
       {isTurned ? (
         <Options
           setStatusQuestion={setStatusQuestion}
