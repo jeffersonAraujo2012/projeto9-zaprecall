@@ -41,6 +41,11 @@ function App() {
 
   const [numQuestionsAnswered, setNumQuestionsAnswered] = useState(0);
   const [showInitialScreen, setShowInitialScreen] = useState(true);
+  const [statusAnsweredQuestions, setStatusAnsweredQuestions] = useState([]);
+
+  function addStatusAnsweredQuestions(status) {
+    setStatusAnsweredQuestions([...statusAnsweredQuestions, status]);
+  }
 
   return (
     <>
@@ -58,6 +63,7 @@ function App() {
                 key={index}
                 numQuestionsAnswered={numQuestionsAnswered}
                 setNumQuestionsAnswered={setNumQuestionsAnswered}
+                addStatusAnsweredQuestions={addStatusAnsweredQuestions}
               />
             );
           })}
@@ -65,6 +71,7 @@ function App() {
           <Footer
             numQuestions={cards.length}
             numQuestionsAnswered={numQuestionsAnswered}
+            statusAnsweredQuestions={statusAnsweredQuestions}
           />
         </Body>
       )}

@@ -13,6 +13,7 @@ export default function Flashcard({
   card,
   numQuestionsAnswered,
   setNumQuestionsAnswered,
+  addStatusAnsweredQuestions,
 }) {
   const [isExpanded, setIsExpanded] = useState(false);
   const [isTurned, setIsTurned] = useState(false);
@@ -64,6 +65,7 @@ export default function Flashcard({
           setIsTurned={setIsTurned}
           numQuestionsAnswered={numQuestionsAnswered}
           setNumQuestionsAnswered={setNumQuestionsAnswered}
+          addStatusAnsweredQuestions={addStatusAnsweredQuestions}
         />
       ) : (
         ""

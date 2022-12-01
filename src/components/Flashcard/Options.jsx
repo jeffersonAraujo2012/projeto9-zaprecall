@@ -6,38 +6,38 @@ export default function Options({
   setIsTurned,
   setIsExpanded,
   setNumQuestionsAnswered,
-  numQuestionsAnswered
+  numQuestionsAnswered,
+  addStatusAnsweredQuestions,
 }) {
+  function optionButtonClick(status) {
+    setStatusQuestion(status);
+    addStatusAnsweredQuestions(status);
+    setIsTurned(false);
+    setIsExpanded(false);
+    setNumQuestionsAnswered(numQuestionsAnswered + 1);
+  }
+
   return (
     <StyledOptions>
       <OptionButton
         color="#FF3030"
         text="Não lembrei"
         onClick={() => {
-          setStatusQuestion("WRONG");
-          setIsTurned(false);
-          setIsExpanded(false);
-          setNumQuestionsAnswered(numQuestionsAnswered + 1);
+          optionButtonClick("WRONG");
         }}
       />
       <OptionButton
         color="#FF922E"
         text="Quase não lembrei"
         onClick={() => {
-          setStatusQuestion("ALMOST");
-          setIsTurned(false);
-          setIsExpanded(false);
-          setNumQuestionsAnswered(numQuestionsAnswered + 1);
+          optionButtonClick("ALMOST");
         }}
       />
       <OptionButton
         color="#2FBE34"
         text="Lembrei"
         onClick={() => {
-          setStatusQuestion("RIGHT");
-          setIsTurned(false);
-          setIsExpanded(false);
-          setNumQuestionsAnswered(numQuestionsAnswered + 1);
+          optionButtonClick("RIGHT");
         }}
       />
     </StyledOptions>
