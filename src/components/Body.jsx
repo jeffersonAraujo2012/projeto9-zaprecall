@@ -17,7 +17,7 @@ const StyledBody = styled.main`
   
   padding: 42px 37px 170px;
   width: 100vw;
-  height: 100%;
+  min-height: 100vh;
 
   background: #fb6b6b;
 `;

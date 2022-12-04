@@ -101,9 +101,9 @@ const StyledFlashcard = styled.div`
   align-items: ${(props) => (props.isExpanded ? "initial" : "center")};
 
   width: 100%;
-  height: ${(props) => (props.isExpanded ? "130px" : "65px")};
+  min-height: ${(props) => (props.isExpanded ? "130px" : "65px")};
   margin: 0 0 25px;
-  padding: 15px 15px 10px;
+  padding: 15px;
 
   background: ${(props) => (props.isExpanded ? "#FFFFD5" : "#ffffff")};
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);

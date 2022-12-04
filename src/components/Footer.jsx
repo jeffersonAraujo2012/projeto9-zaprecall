@@ -3,6 +3,7 @@ import styled from "styled-components";
 import iconWrong from "../assets/images/icon_wrong.png";
 import iconAlmost from "../assets/images/icon_almost.png";
 import iconRight from "../assets/images/icon_right.png";
+import FinalText from "./FinalText";
 
 export default function Footer({
   numQuestions,
@@ -11,6 +12,9 @@ export default function Footer({
 }) {
   return (
     <StyledFooter data-test="footer">
+      {numQuestions === numQuestionsAnswered ? (
+        <FinalText statusAnsweredQuestions={statusAnsweredQuestions} />
+      ) : null}
       <span>
         {numQuestionsAnswered}/{numQuestions} CONCLUÍDOS
       </span>
@@ -62,7 +66,7 @@ const StyledFooter = styled.footer`
   justify-content: center;
   align-items: center;
   width: 100%;
-  height: 70px;
+  min-height: 70px;
 
   background: #ffffff;
   box-shadow: 0px -4px 6px rgba(0, 0, 0, 0.05);
@@ -79,7 +83,7 @@ const StyledFooter = styled.footer`
   div {
     display: flex;
     flex-wrap: wrap;
-    margin-top: 6px;
+    margin: 6px 0;
 
     img {
       margin: 0 3px;
