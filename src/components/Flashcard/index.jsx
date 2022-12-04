@@ -19,8 +19,6 @@ export default function Flashcard({
   const [isTurned, setIsTurned] = useState(false);
   const [statusQuestion, setStatusQuestion] = useState("NOT_ANSWERED");
 
-  console.log(statusQuestion);
-
   function handlerExpanderClick() {
     if (isExpanded === false && statusQuestion === "NOT_ANSWERED") {
       setIsExpanded(true);
@@ -105,7 +103,7 @@ const StyledFlashcard = styled.div`
   margin: 0 0 25px;
   padding: 15px;
 
-  background: ${(props) => (props.isExpanded ? "#FFFFD5" : "#ffffff")};
+  background: ${(props) => (props.isExpanded ? "#FFFFD4" : "#ffffff")};
   box-shadow: 0px 4px 5px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
 
