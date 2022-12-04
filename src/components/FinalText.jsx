@@ -6,7 +6,7 @@ import sad from "../assets/images/sad.png";
 export default function FinalText({ statusAnsweredQuestions }) {
   const thereIsWrong = statusAnsweredQuestions.includes("WRONG");
   return (
-    <StyledFinalText>
+    <StyledFinalText data-test="finish-text">
       <h1>
         <img
           src={thereIsWrong ? sad : party}
